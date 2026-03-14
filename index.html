@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>Retro Mobile Dash</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>RETRO MOBILE DASH</h1>
+      <div class="hud">
+        <span>Score: <b id="score">0</b></span>
+        <span>Best: <b id="best">0</b></span>
+        <span>Lives: <b id="lives">3</b></span>
+      </div>
+    </header>
+
+    <canvas id="game" width="360" height="640" aria-label="game canvas"></canvas>
+
+    <div class="controls" aria-label="mobile controls">
+      <button id="leftBtn">◀</button>
+      <button id="startBtn">START / RESTART</button>
+      <button id="rightBtn">▶</button>
+    </div>
+
+    <p class="help">PC: ← → / A D 이동 · Space 시작</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
