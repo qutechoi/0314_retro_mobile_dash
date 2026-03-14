@@ -215,7 +215,23 @@ function bindHold(btn, onDown, onUp) {
 
 bindHold(leftBtn, () => setLeft(true), () => setLeft(false));
 bindHold(rightBtn, () => setRight(true), () => setRight(false));
-startBtn.addEventListener('click', startGame);
+
+function startByUserAction(e) {
+  if (e) e.preventDefault();
+  startGame();
+}
+
+startBtn.addEventListener('click', startByUserAction);
+startBtn.addEventListener('touchstart', startByUserAction, { passive: false });
+
+// Mobile users often tap the game area itself first.
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  if (!gameOn) startGame();
+}, { passive: false });
+canvas.addEventListener('mousedown', () => {
+  if (!gameOn) startGame();
+});
 
 updateHud();
 loop();
